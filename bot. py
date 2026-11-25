@@ -1,0 +1,13 @@
+from deriv_api import DerivAPI
+import asyncio
+
+API_TOKEN = "PASTE_YOUR_DERIV_TOKEN_HERE"
+
+async def main():
+    api = DerivAPI(app_id=1089)
+    await api.authorize(API_TOKEN)
+    balance = await api.balance()
+    print("Connected! Balance:", balance)
+    await api.disconnect()
+
+asyncio.run(main())
